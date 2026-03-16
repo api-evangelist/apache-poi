@@ -1,0 +1,36 @@
+aid: apache-poi
+name: Apache POI
+description: >-
+  Apache POI is a Java API for manipulating various file formats based upon the Office Open XML standards (OOXML) and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and writing Excel, Word, PowerPoint, Visio, and Outlook files.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Office Documents
+  - Excel
+  - Word
+  - Java
+  - Document Processing
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-poi:apache-poi
+    name: Apache POI
+    description: >-
+      POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio (HDGF/XDGF), and Outlook (HSMF), with support for formulas, charts, and formatting.
+    humanURL: https://poi.apache.org/components/index.html
+    tags:
+      - Java
+      - Excel
+      - Word
+      - Office
+    properties:
+      - type: Documentation
+        url: https://poi.apache.org/components/index.html
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
