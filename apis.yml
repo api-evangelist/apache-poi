@@ -7,11 +7,11 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Office Documents
-  - Excel
-  - Word
-  - Java
   - Document Processing
+  - Excel
+  - Java
+  - Office Documents
+  - Word
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -24,10 +24,10 @@ apis:
       POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio (HDGF/XDGF), and Outlook (HSMF), with support for formulas, charts, and formatting.
     humanURL: https://poi.apache.org/components/index.html
     tags:
-      - Java
       - Excel
-      - Word
+      - Java
       - Office
+      - Word
     properties:
       - type: Documentation
         url: https://poi.apache.org/components/index.html
