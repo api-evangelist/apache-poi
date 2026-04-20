@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-workbook-list-structure.json",
+  "description": "List of Excel workbooks",
+  "type": "object",
+  "properties": {
+    "workbooks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Workbook"
+      }
+    },
+    "total": {
+      "type": "int32",
+      "description": "Total number of workbooks"
+    }
+  },
+  "name": "WorkbookList"
+}

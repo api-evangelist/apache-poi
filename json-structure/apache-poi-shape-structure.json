@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-shape-structure.json",
+  "description": "Shape on a PowerPoint slide",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Shape identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Shape name"
+    },
+    "type": {
+      "type": "string",
+      "description": "Shape type (TextBox, Picture, Table, etc.)"
+    },
+    "text": {
+      "type": "string",
+      "description": "Text content of the shape"
+    }
+  },
+  "name": "Shape"
+}

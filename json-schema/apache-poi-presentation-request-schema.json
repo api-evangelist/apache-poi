@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-presentation-request-schema.json",
+  "title": "PresentationRequest",
+  "description": "Request to create a PowerPoint presentation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Presentation filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "PPT",
+        "PPTX"
+      ],
+      "description": "Presentation format"
+    },
+    "slideCount": {
+      "type": "integer",
+      "description": "Initial number of blank slides"
+    }
+  },
+  "required": [
+    "name",
+    "format"
+  ]
+}

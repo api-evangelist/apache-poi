@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-document-structure.json",
+  "description": "Word document",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Document identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Document filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "DOC",
+        "DOCX"
+      ],
+      "description": "Document format"
+    },
+    "paragraphs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Paragraph"
+      }
+    },
+    "pageCount": {
+      "type": "int32",
+      "description": "Estimated page count"
+    }
+  },
+  "name": "Document"
+}

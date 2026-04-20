@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-paragraph-schema.json",
+  "title": "Paragraph",
+  "description": "Paragraph in a Word document",
+  "type": "object",
+  "properties": {
+    "index": {
+      "type": "integer",
+      "description": "Paragraph index"
+    },
+    "text": {
+      "type": "string",
+      "description": "Paragraph text content"
+    },
+    "style": {
+      "type": "string",
+      "description": "Paragraph style name"
+    }
+  }
+}

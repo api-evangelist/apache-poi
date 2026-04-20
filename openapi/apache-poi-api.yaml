@@ -1,0 +1,500 @@
+openapi: 3.0.3
+info:
+  title: Apache POI API
+  description: Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.
+  version: 5.2.0
+  contact:
+    name: Apache POI
+    url: https://poi.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://poi.example.com/api/v1
+    description: Apache POI Document Service
+
+paths:
+  /workbooks:
+    get:
+      operationId: listWorkbooks
+      summary: Apache POI List Workbooks
+      description: List all Excel workbooks managed by the POI service.
+      tags: [Excel]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of workbooks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkbookList'
+    post:
+      operationId: createWorkbook
+      summary: Apache POI Create Workbook
+      description: Create a new Excel workbook (XLS or XLSX format).
+      tags: [Excel]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkbookRequest'
+      responses:
+        '201':
+          description: Workbook created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workbook'
+  /workbooks/{workbookId}:
+    get:
+      operationId: getWorkbook
+      summary: Apache POI Get Workbook
+      description: Retrieve metadata and sheet information for an Excel workbook.
+      tags: [Excel]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId
+      parameters:
+        - name: workbookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workbook metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workbook'
+    delete:
+      operationId: deleteWorkbook
+      summary: Apache POI Delete Workbook
+      description: Delete an Excel workbook from the service.
+      tags: [Excel]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId
+      parameters:
+        - name: workbookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Workbook deleted
+  /workbooks/{workbookId}/sheets:
+    get:
+      operationId: listSheets
+      summary: Apache POI List Sheets
+      description: List all sheets in an Excel workbook.
+      tags: [Excel]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId
+      parameters:
+        - name: workbookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of sheets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SheetList'
+  /workbooks/{workbookId}/sheets/{sheetName}/cells:
+    get:
+      operationId: getCells
+      summary: Apache POI Get Cells
+      description: Get cell data from a specific sheet in an Excel workbook.
+      tags: [Excel]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId && sheetName
+      parameters:
+        - name: workbookId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sheetName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: range
+          in: query
+          schema:
+            type: string
+          description: Cell range (e.g. A1:D10)
+      responses:
+        '200':
+          description: Cell data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CellData'
+  /documents:
+    post:
+      operationId: createDocument
+      summary: Apache POI Create Document
+      description: Create a new Word document (DOC or DOCX format).
+      tags: [Word]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentRequest'
+      responses:
+        '201':
+          description: Document created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+  /documents/{documentId}:
+    get:
+      operationId: getDocument
+      summary: Apache POI Get Document
+      description: Retrieve a Word document including paragraphs and text content.
+      tags: [Word]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: documentId
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+  /presentations:
+    post:
+      operationId: createPresentation
+      summary: Apache POI Create Presentation
+      description: Create a new PowerPoint presentation (PPT or PPTX format).
+      tags: [PowerPoint]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PresentationRequest'
+      responses:
+        '201':
+          description: Presentation created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Presentation'
+  /presentations/{presentationId}:
+    get:
+      operationId: getPresentation
+      summary: Apache POI Get Presentation
+      description: Retrieve a PowerPoint presentation including slides and shapes.
+      tags: [PowerPoint]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: presentationId
+      parameters:
+        - name: presentationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Presentation content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Presentation'
+  /convert:
+    post:
+      operationId: convertDocument
+      summary: Apache POI Convert Document
+      description: Convert a document between Office formats (e.g. XLS to XLSX, DOC to DOCX).
+      tags: [Conversion]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversionRequest'
+      responses:
+        '200':
+          description: Conversion result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversionResult'
+
+components:
+  schemas:
+    WorkbookList:
+      type: object
+      description: List of Excel workbooks
+      properties:
+        workbooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workbook'
+        total:
+          type: integer
+          description: Total number of workbooks
+    Workbook:
+      type: object
+      description: Excel workbook metadata
+      properties:
+        id:
+          type: string
+          description: Workbook identifier
+        name:
+          type: string
+          description: Workbook filename
+        format:
+          type: string
+          enum: [XLS, XLSX]
+          description: Office format (legacy XLS or modern XLSX)
+        sheetCount:
+          type: integer
+          description: Number of sheets in the workbook
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+    WorkbookRequest:
+      type: object
+      description: Request to create an Excel workbook
+      required: [name, format]
+      properties:
+        name:
+          type: string
+          description: Workbook filename
+        format:
+          type: string
+          enum: [XLS, XLSX]
+          description: Output format
+        sheets:
+          type: array
+          items:
+            type: string
+          description: Initial sheet names
+    SheetList:
+      type: object
+      description: List of sheets in a workbook
+      properties:
+        sheets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sheet'
+    Sheet:
+      type: object
+      description: Excel worksheet
+      properties:
+        name:
+          type: string
+          description: Sheet name
+        index:
+          type: integer
+          description: Sheet index (0-based)
+        rowCount:
+          type: integer
+          description: Number of rows with data
+        columnCount:
+          type: integer
+          description: Number of columns with data
+    CellData:
+      type: object
+      description: Cell data from an Excel sheet
+      properties:
+        rows:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Cell'
+        range:
+          type: string
+          description: Cell range returned
+    Cell:
+      type: object
+      description: Individual Excel cell
+      properties:
+        address:
+          type: string
+          description: Cell address (e.g. A1)
+        value:
+          type: string
+          description: Cell value as string
+        type:
+          type: string
+          enum: [STRING, NUMERIC, BOOLEAN, FORMULA, BLANK, ERROR]
+          description: Cell type
+        formula:
+          type: string
+          description: Formula if applicable
+    DocumentRequest:
+      type: object
+      description: Request to create a Word document
+      required: [name, format]
+      properties:
+        name:
+          type: string
+          description: Document filename
+        format:
+          type: string
+          enum: [DOC, DOCX]
+          description: Document format
+        content:
+          type: string
+          description: Initial text content
+    Document:
+      type: object
+      description: Word document
+      properties:
+        id:
+          type: string
+          description: Document identifier
+        name:
+          type: string
+          description: Document filename
+        format:
+          type: string
+          enum: [DOC, DOCX]
+          description: Document format
+        paragraphs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Paragraph'
+        pageCount:
+          type: integer
+          description: Estimated page count
+    Paragraph:
+      type: object
+      description: Paragraph in a Word document
+      properties:
+        index:
+          type: integer
+          description: Paragraph index
+        text:
+          type: string
+          description: Paragraph text content
+        style:
+          type: string
+          description: Paragraph style name
+    PresentationRequest:
+      type: object
+      description: Request to create a PowerPoint presentation
+      required: [name, format]
+      properties:
+        name:
+          type: string
+          description: Presentation filename
+        format:
+          type: string
+          enum: [PPT, PPTX]
+          description: Presentation format
+        slideCount:
+          type: integer
+          description: Initial number of blank slides
+    Presentation:
+      type: object
+      description: PowerPoint presentation
+      properties:
+        id:
+          type: string
+          description: Presentation identifier
+        name:
+          type: string
+          description: Presentation filename
+        format:
+          type: string
+          enum: [PPT, PPTX]
+          description: Presentation format
+        slides:
+          type: array
+          items:
+            $ref: '#/components/schemas/Slide'
+    Slide:
+      type: object
+      description: PowerPoint slide
+      properties:
+        index:
+          type: integer
+          description: Slide index (0-based)
+        title:
+          type: string
+          description: Slide title text
+        shapes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shape'
+    Shape:
+      type: object
+      description: Shape on a PowerPoint slide
+      properties:
+        id:
+          type: integer
+          description: Shape identifier
+        name:
+          type: string
+          description: Shape name
+        type:
+          type: string
+          description: Shape type (TextBox, Picture, Table, etc.)
+        text:
+          type: string
+          description: Text content of the shape
+    ConversionRequest:
+      type: object
+      description: Document conversion request
+      required: [sourceId, sourceType, targetFormat]
+      properties:
+        sourceId:
+          type: string
+          description: Source document identifier
+        sourceType:
+          type: string
+          enum: [workbook, document, presentation]
+          description: Type of the source document
+        targetFormat:
+          type: string
+          description: Target format (XLSX, DOCX, PPTX, PDF)
+    ConversionResult:
+      type: object
+      description: Document conversion result
+      properties:
+        id:
+          type: string
+          description: Converted document identifier
+        format:
+          type: string
+          description: Output format
+        url:
+          type: string
+          description: Download URL for the converted document
+        size:
+          type: integer
+          description: File size in bytes

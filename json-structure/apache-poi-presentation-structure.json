@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-presentation-structure.json",
+  "description": "PowerPoint presentation",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Presentation identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Presentation filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "PPT",
+        "PPTX"
+      ],
+      "description": "Presentation format"
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Slide"
+      }
+    }
+  },
+  "name": "Presentation"
+}

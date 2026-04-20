@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-document-request-schema.json",
+  "title": "DocumentRequest",
+  "description": "Request to create a Word document",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Document filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "DOC",
+        "DOCX"
+      ],
+      "description": "Document format"
+    },
+    "content": {
+      "type": "string",
+      "description": "Initial text content"
+    }
+  },
+  "required": [
+    "name",
+    "format"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-document-schema.json",
+  "title": "Document",
+  "description": "Word document",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Document identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Document filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "DOC",
+        "DOCX"
+      ],
+      "description": "Document format"
+    },
+    "paragraphs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Paragraph"
+      }
+    },
+    "pageCount": {
+      "type": "integer",
+      "description": "Estimated page count"
+    }
+  }
+}

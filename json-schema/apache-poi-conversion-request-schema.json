@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-conversion-request-schema.json",
+  "title": "ConversionRequest",
+  "description": "Document conversion request",
+  "type": "object",
+  "properties": {
+    "sourceId": {
+      "type": "string",
+      "description": "Source document identifier"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "workbook",
+        "document",
+        "presentation"
+      ],
+      "description": "Type of the source document"
+    },
+    "targetFormat": {
+      "type": "string",
+      "description": "Target format (XLSX, DOCX, PPTX, PDF)"
+    }
+  },
+  "required": [
+    "sourceId",
+    "sourceType",
+    "targetFormat"
+  ]
+}

@@ -1,0 +1,61 @@
+name: Apache POI Vocabulary
+description: Unified taxonomy mapping Microsoft Office document processing resources, actions, workflows, and personas for Apache POI.
+version: 1.0.0
+operational:
+  apis:
+    - name: Apache POI API
+      description: Java API for reading and writing Microsoft Office formats
+  resources:
+    - name: Workbook
+      description: Excel spreadsheet workbook (XLS/XLSX)
+    - name: Sheet
+      description: Worksheet within an Excel workbook
+    - name: Cell
+      description: Individual cell in a spreadsheet
+    - name: Document
+      description: Word processing document (DOC/DOCX)
+    - name: Paragraph
+      description: Paragraph within a Word document
+    - name: Presentation
+      description: PowerPoint presentation (PPT/PPTX)
+    - name: Slide
+      description: Individual slide in a presentation
+    - name: Shape
+      description: Shape or content element on a slide
+  actions:
+    - name: Create
+      description: Create new Office documents
+    - name: Read
+      description: Read and extract content from Office documents
+    - name: Convert
+      description: Convert between Office formats
+    - name: Extract
+      description: Extract text and data from documents
+  authentication:
+    - name: None
+      description: No authentication required for local library usage
+capability:
+  workflows:
+    - name: Document Processing Workflow
+      description: End-to-end workflow for creating and manipulating Office documents
+    - name: Data Extraction Workflow
+      description: Workflow for extracting data from Excel, Word, and PowerPoint files
+  personas:
+    - name: Application Developer
+      description: Java developer building Office document generation features
+    - name: Data Engineer
+      description: Engineer extracting and transforming data from Office files
+    - name: Report Generator
+      description: Developer generating automated Excel or Word reports
+  domains:
+    - name: Document Processing
+      description: Creation, manipulation, and conversion of Office documents
+    - name: Data Extraction
+      description: Extracting structured data from Office file formats
+  crossReference:
+    - name: Apache Tika
+      description: Content detection and extraction framework
+    - name: LibreOffice
+      description: Alternative open source Office suite
+    - name: iText
+      description: PDF generation library complementary to POI

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-workbook-schema.json",
+  "title": "Workbook",
+  "description": "Excel workbook metadata",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Workbook identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Workbook filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "XLS",
+        "XLSX"
+      ],
+      "description": "Office format (legacy XLS or modern XLSX)"
+    },
+    "sheetCount": {
+      "type": "integer",
+      "description": "Number of sheets in the workbook"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-slide-structure.json",
+  "description": "PowerPoint slide",
+  "type": "object",
+  "properties": {
+    "index": {
+      "type": "int32",
+      "description": "Slide index (0-based)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Slide title text"
+    },
+    "shapes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Shape"
+      }
+    }
+  },
+  "name": "Slide"
+}

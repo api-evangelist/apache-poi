@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-slide-schema.json",
+  "title": "Slide",
+  "description": "PowerPoint slide",
+  "type": "object",
+  "properties": {
+    "index": {
+      "type": "integer",
+      "description": "Slide index (0-based)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Slide title text"
+    },
+    "shapes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Shape"
+      }
+    }
+  }
+}

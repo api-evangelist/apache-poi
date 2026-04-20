@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-cell-schema.json",
+  "title": "Cell",
+  "description": "Individual Excel cell",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Cell address (e.g. A1)"
+    },
+    "value": {
+      "type": "string",
+      "description": "Cell value as string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "STRING",
+        "NUMERIC",
+        "BOOLEAN",
+        "FORMULA",
+        "BLANK",
+        "ERROR"
+      ],
+      "description": "Cell type"
+    },
+    "formula": {
+      "type": "string",
+      "description": "Formula if applicable"
+    }
+  }
+}

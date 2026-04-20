@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-sheet-schema.json",
+  "title": "Sheet",
+  "description": "Excel worksheet",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Sheet name"
+    },
+    "index": {
+      "type": "integer",
+      "description": "Sheet index (0-based)"
+    },
+    "rowCount": {
+      "type": "integer",
+      "description": "Number of rows with data"
+    },
+    "columnCount": {
+      "type": "integer",
+      "description": "Number of columns with data"
+    }
+  }
+}

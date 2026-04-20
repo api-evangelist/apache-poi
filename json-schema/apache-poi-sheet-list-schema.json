@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-sheet-list-schema.json",
+  "title": "SheetList",
+  "description": "List of sheets in a workbook",
+  "type": "object",
+  "properties": {
+    "sheets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Sheet"
+      }
+    }
+  }
+}

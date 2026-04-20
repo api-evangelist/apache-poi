@@ -1,0 +1,148 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "poi": "https://poi.apache.org/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "WorkbookList": "poi:WorkbookList",
+    "Workbook": "poi:Workbook",
+    "WorkbookRequest": "poi:WorkbookRequest",
+    "SheetList": "poi:SheetList",
+    "Sheet": "poi:Sheet",
+    "CellData": "poi:CellData",
+    "Cell": "poi:Cell",
+    "DocumentRequest": "poi:DocumentRequest",
+    "Document": "poi:Document",
+    "Paragraph": "poi:Paragraph",
+    "PresentationRequest": "poi:PresentationRequest",
+    "Presentation": "poi:Presentation",
+    "Slide": "poi:Slide",
+    "Shape": "poi:Shape",
+    "ConversionRequest": "poi:ConversionRequest",
+    "ConversionResult": "poi:ConversionResult",
+    "workbooks": {
+      "@id": "poi:workbooks",
+      "@container": "@set"
+    },
+    "total": {
+      "@id": "poi:total",
+      "@type": "xsd:integer"
+    },
+    "id": {
+      "@id": "poi:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "poi:name",
+      "@type": "schema:name"
+    },
+    "format": {
+      "@id": "poi:format",
+      "@type": "xsd:string"
+    },
+    "sheetCount": {
+      "@id": "poi:sheetCount",
+      "@type": "xsd:integer"
+    },
+    "createdAt": {
+      "@id": "poi:createdAt",
+      "@type": "xsd:string"
+    },
+    "sheets": {
+      "@id": "poi:sheets",
+      "@container": "@set"
+    },
+    "index": {
+      "@id": "poi:index",
+      "@type": "xsd:integer"
+    },
+    "rowCount": {
+      "@id": "poi:rowCount",
+      "@type": "xsd:integer"
+    },
+    "columnCount": {
+      "@id": "poi:columnCount",
+      "@type": "xsd:integer"
+    },
+    "rows": {
+      "@id": "poi:rows",
+      "@container": "@set"
+    },
+    "range": {
+      "@id": "poi:range",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "poi:address",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "poi:value",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "poi:type",
+      "@type": "xsd:string"
+    },
+    "formula": {
+      "@id": "poi:formula",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "poi:content",
+      "@type": "xsd:string"
+    },
+    "paragraphs": {
+      "@id": "poi:paragraphs",
+      "@container": "@set"
+    },
+    "pageCount": {
+      "@id": "poi:pageCount",
+      "@type": "xsd:integer"
+    },
+    "text": {
+      "@id": "poi:text",
+      "@type": "xsd:string"
+    },
+    "style": {
+      "@id": "poi:style",
+      "@type": "xsd:string"
+    },
+    "slideCount": {
+      "@id": "poi:slideCount",
+      "@type": "xsd:integer"
+    },
+    "slides": {
+      "@id": "poi:slides",
+      "@container": "@set"
+    },
+    "title": {
+      "@id": "poi:title",
+      "@type": "xsd:string"
+    },
+    "shapes": {
+      "@id": "poi:shapes",
+      "@container": "@set"
+    },
+    "sourceId": {
+      "@id": "poi:sourceId",
+      "@type": "xsd:string"
+    },
+    "sourceType": {
+      "@id": "poi:sourceType",
+      "@type": "xsd:string"
+    },
+    "targetFormat": {
+      "@id": "poi:targetFormat",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "poi:url",
+      "@type": "schema:url"
+    },
+    "size": {
+      "@id": "poi:size",
+      "@type": "xsd:integer"
+    }
+  }
+}

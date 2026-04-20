@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-workbook-request-schema.json",
+  "title": "WorkbookRequest",
+  "description": "Request to create an Excel workbook",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Workbook filename"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "XLS",
+        "XLSX"
+      ],
+      "description": "Output format"
+    },
+    "sheets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Initial sheet names"
+    }
+  },
+  "required": [
+    "name",
+    "format"
+  ]
+}

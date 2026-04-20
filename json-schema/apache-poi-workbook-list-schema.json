@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-schema/apache-poi-workbook-list-schema.json",
+  "title": "WorkbookList",
+  "description": "List of Excel workbooks",
+  "type": "object",
+  "properties": {
+    "workbooks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Workbook"
+      }
+    },
+    "total": {
+      "type": "integer",
+      "description": "Total number of workbooks"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-cell-data-structure.json",
+  "description": "Cell data from an Excel sheet",
+  "type": "object",
+  "properties": {
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Cell"
+        }
+      }
+    },
+    "range": {
+      "type": "string",
+      "description": "Cell range returned"
+    }
+  },
+  "name": "CellData"
+}

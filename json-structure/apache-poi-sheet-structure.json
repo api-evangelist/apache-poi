@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/json-structure/apache-poi-sheet-structure.json",
+  "description": "Excel worksheet",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Sheet name"
+    },
+    "index": {
+      "type": "int32",
+      "description": "Sheet index (0-based)"
+    },
+    "rowCount": {
+      "type": "int32",
+      "description": "Number of rows with data"
+    },
+    "columnCount": {
+      "type": "int32",
+      "description": "Number of columns with data"
+    }
+  },
+  "name": "Sheet"
+}
