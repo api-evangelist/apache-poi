@@ -55,7 +55,7 @@ common:
   url: vocabulary/apache-poi-vocabulary.yaml
 - type: NaftikoCapability
   url: capabilities/poi-workflow.yaml
-- type: JSON-LD
+- type: JSONLD
   url: json-ld/apache-poi-context.jsonld
 - type: Features
   data:
