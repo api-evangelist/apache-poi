@@ -1,8 +1,8 @@
 aid: apache-poi
 name: Apache POI
-description: >-
-  Apache POI is a Java API for manipulating various file formats based upon the Office Open XML standards (OOXML) and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and writing Excel,
-  Word, PowerPoint, Visio, and Outlook files.
+description: Apache POI is a Java API for manipulating various file formats based upon the Office Open XML standards (OOXML)
+  and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and writing Excel, Word, PowerPoint, Visio, and
+  Outlook files.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -17,16 +17,14 @@ tags:
 - Apache
 - Open Source
 created: '2026-03-16'
-modified: '2026-04-19'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml
+modified: '2026-05-19'
+url: https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
 - aid: apache-poi:apache-poi
   name: Apache POI
-  description: >-
-    POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio (HDGF/XDGF), and Outlook (HSMF), with support for
-    formulas, charts, and formatting.
+  description: POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF),
+    PowerPoint (HSLF/XSLF), Visio (HDGF/XDGF), and Outlook (HSMF), with support for formulas, charts, and formatting.
   humanURL: https://poi.apache.org/components/index.html
   tags:
   - Document Processing
@@ -41,6 +39,14 @@ apis:
     url: https://poi.apache.org/components/
   - type: OpenAPI
     url: openapi/apache-poi-api.yaml
+  - type: NaftikoCapability
+    url: capabilities/apache-poi-conversion.yaml
+  - type: NaftikoCapability
+    url: capabilities/apache-poi-excel.yaml
+  - type: NaftikoCapability
+    url: capabilities/apache-poi-powerpoint.yaml
+  - type: NaftikoCapability
+    url: capabilities/apache-poi-word.yaml
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
@@ -53,8 +59,6 @@ common:
   url: rules/apache-poi-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/apache-poi-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/poi-workflow.yaml
 - type: JSONLD
   url: json-ld/apache-poi-context.jsonld
 - type: Features

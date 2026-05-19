@@ -1,0 +1,118 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache POI API — PowerPoint
+  description: 'Apache POI API — PowerPoint. 2 operations. Lead operation: Apache POI Create Presentation. Self-contained
+    Naftiko capability covering one Apache Poi business surface.'
+  tags:
+  - Apache Poi
+  - PowerPoint
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_POI_API_KEY: APACHE_POI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apache-poi-powerpoint
+    baseUri: https://poi.example.com/api/v1
+    description: Apache POI API — PowerPoint business capability. Self-contained, no shared references.
+    resources:
+    - name: presentations
+      path: /presentations
+      operations:
+      - name: createpresentation
+        method: POST
+        description: Apache POI Create Presentation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: presentations-presentationId
+      path: /presentations/{presentationId}
+      operations:
+      - name: getpresentation
+        method: GET
+        description: Apache POI Get Presentation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: presentationId
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: apache-poi-powerpoint-rest
+    port: 8080
+    description: REST adapter for Apache POI API — PowerPoint. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/presentations
+      name: presentations
+      description: REST surface for presentations.
+      operations:
+      - method: POST
+        name: createpresentation
+        description: Apache POI Create Presentation
+        call: apache-poi-powerpoint.createpresentation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/presentations/{presentationid}
+      name: presentations-presentationid
+      description: REST surface for presentations-presentationId.
+      operations:
+      - method: GET
+        name: getpresentation
+        description: Apache POI Get Presentation
+        call: apache-poi-powerpoint.getpresentation
+        with:
+          presentationId: rest.presentationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apache-poi-powerpoint-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache POI API — PowerPoint. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: apache-poi-create-presentation
+      description: Apache POI Create Presentation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-poi-powerpoint.createpresentation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-poi-get-presentation
+      description: Apache POI Get Presentation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-poi-powerpoint.getpresentation
+      with:
+        presentationId: tools.presentationId
+      outputParameters:
+      - type: object
+        mapping: $.

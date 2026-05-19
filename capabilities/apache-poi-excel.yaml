@@ -1,0 +1,271 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache POI API — Excel
+  description: 'Apache POI API — Excel. 6 operations. Lead operation: Apache POI List Workbooks. Self-contained Naftiko capability
+    covering one Apache Poi business surface.'
+  tags:
+  - Apache Poi
+  - Excel
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_POI_API_KEY: APACHE_POI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apache-poi-excel
+    baseUri: https://poi.example.com/api/v1
+    description: Apache POI API — Excel business capability. Self-contained, no shared references.
+    resources:
+    - name: workbooks
+      path: /workbooks
+      operations:
+      - name: listworkbooks
+        method: GET
+        description: Apache POI List Workbooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createworkbook
+        method: POST
+        description: Apache POI Create Workbook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workbooks-workbookId
+      path: /workbooks/{workbookId}
+      operations:
+      - name: getworkbook
+        method: GET
+        description: Apache POI Get Workbook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workbookId
+          in: path
+          type: string
+          required: true
+      - name: deleteworkbook
+        method: DELETE
+        description: Apache POI Delete Workbook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workbookId
+          in: path
+          type: string
+          required: true
+    - name: workbooks-workbookId-sheets
+      path: /workbooks/{workbookId}/sheets
+      operations:
+      - name: listsheets
+        method: GET
+        description: Apache POI List Sheets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workbookId
+          in: path
+          type: string
+          required: true
+    - name: workbooks-workbookId-sheets-sheetName-cells
+      path: /workbooks/{workbookId}/sheets/{sheetName}/cells
+      operations:
+      - name: getcells
+        method: GET
+        description: Apache POI Get Cells
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workbookId
+          in: path
+          type: string
+          required: true
+        - name: sheetName
+          in: path
+          type: string
+          required: true
+        - name: range
+          in: query
+          type: string
+          description: Cell range (e.g. A1:D10)
+  exposes:
+  - type: rest
+    namespace: apache-poi-excel-rest
+    port: 8080
+    description: REST adapter for Apache POI API — Excel. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/workbooks
+      name: workbooks
+      description: REST surface for workbooks.
+      operations:
+      - method: GET
+        name: listworkbooks
+        description: Apache POI List Workbooks
+        call: apache-poi-excel.listworkbooks
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createworkbook
+        description: Apache POI Create Workbook
+        call: apache-poi-excel.createworkbook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}
+      name: workbooks-workbookid
+      description: REST surface for workbooks-workbookId.
+      operations:
+      - method: GET
+        name: getworkbook
+        description: Apache POI Get Workbook
+        call: apache-poi-excel.getworkbook
+        with:
+          workbookId: rest.workbookId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteworkbook
+        description: Apache POI Delete Workbook
+        call: apache-poi-excel.deleteworkbook
+        with:
+          workbookId: rest.workbookId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/sheets
+      name: workbooks-workbookid-sheets
+      description: REST surface for workbooks-workbookId-sheets.
+      operations:
+      - method: GET
+        name: listsheets
+        description: Apache POI List Sheets
+        call: apache-poi-excel.listsheets
+        with:
+          workbookId: rest.workbookId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/sheets/{sheetname}/cells
+      name: workbooks-workbookid-sheets-sheetname-cells
+      description: REST surface for workbooks-workbookId-sheets-sheetName-cells.
+      operations:
+      - method: GET
+        name: getcells
+        description: Apache POI Get Cells
+        call: apache-poi-excel.getcells
+        with:
+          workbookId: rest.workbookId
+          sheetName: rest.sheetName
+          range: rest.range
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apache-poi-excel-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache POI API — Excel. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apache-poi-list-workbooks
+      description: Apache POI List Workbooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-poi-excel.listworkbooks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-poi-create-workbook
+      description: Apache POI Create Workbook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-poi-excel.createworkbook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-poi-get-workbook
+      description: Apache POI Get Workbook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-poi-excel.getworkbook
+      with:
+        workbookId: tools.workbookId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-poi-delete-workbook
+      description: Apache POI Delete Workbook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apache-poi-excel.deleteworkbook
+      with:
+        workbookId: tools.workbookId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-poi-list-sheets
+      description: Apache POI List Sheets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-poi-excel.listsheets
+      with:
+        workbookId: tools.workbookId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-poi-get-cells
+      description: Apache POI Get Cells
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-poi-excel.getcells
+      with:
+        workbookId: tools.workbookId
+        sheetName: tools.sheetName
+        range: tools.range
+      outputParameters:
+      - type: object
+        mapping: $.
