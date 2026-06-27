@@ -39,13 +39,13 @@ apis:
     url: https://poi.apache.org/components/
   - type: OpenAPI
     url: openapi/apache-poi-api.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apache-poi-conversion.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apache-poi-excel.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apache-poi-powerpoint.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apache-poi-word.yaml
 maintainers:
 - FN: Kin Lane
