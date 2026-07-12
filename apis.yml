@@ -51,6 +51,10 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
 common:
+- type: VulnerabilityDisclosure
+  url: security/apache-poi-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/apache-poi-domain-security.yml
 - type: GitHubOrganization
   url: https://github.com/apache/poi
 - type: Documentation
