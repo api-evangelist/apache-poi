@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: Apache POI Conversion Word API
+  description: Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.
+  version: 5.2.0
+  contact:
+    name: Apache POI
+    url: https://poi.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://poi.example.com/api/v1
+  description: Apache POI Document Service
+tags:
+- name: Word
+paths:
+  /documents:
+    post:
+      operationId: createDocument
+      summary: Apache POI Create Document
+      description: Create a new Word document (DOC or DOCX format).
+      tags:
+      - Word
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentRequest'
+      responses:
+        '201':
+          description: Document created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+  /documents/{documentId}:
+    get:
+      operationId: getDocument
+      summary: Apache POI Get Document
+      description: Retrieve a Word document including paragraphs and text content.
+      tags:
+      - Word
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: documentId
+      parameters:
+      - name: documentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Document content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+components:
+  schemas:
+    Document:
+      type: object
+      description: Word document
+      properties:
+        id:
+          type: string
+          description: Document identifier
+        name:
+          type: string
+          description: Document filename
+        format:
+          type: string
+          enum:
+          - DOC
+          - DOCX
+          description: Document format
+        paragraphs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Paragraph'
+        pageCount:
+          type: integer
+          description: Estimated page count
+    Paragraph:
+      type: object
+      description: Paragraph in a Word document
+      properties:
+        index:
+          type: integer
+          description: Paragraph index
+        text:
+          type: string
+          description: Paragraph text content
+        style:
+          type: string
+          description: Paragraph style name
+    DocumentRequest:
+      type: object
+      description: Request to create a Word document
+      required:
+      - name
+      - format
+      properties:
+        name:
+          type: string
+          description: Document filename
+        format:
+          type: string
+          enum:
+          - DOC
+          - DOCX
+          description: Document format
+        content:
+          type: string
+          description: Initial text content

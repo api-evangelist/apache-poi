@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Apache POI Conversion API
+  description: Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.
+  version: 5.2.0
+  contact:
+    name: Apache POI
+    url: https://poi.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://poi.example.com/api/v1
+  description: Apache POI Document Service
+tags:
+- name: Conversion
+paths:
+  /convert:
+    post:
+      operationId: convertDocument
+      summary: Apache POI Convert Document
+      description: Convert a document between Office formats (e.g. XLS to XLSX, DOC to DOCX).
+      tags:
+      - Conversion
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversionRequest'
+      responses:
+        '200':
+          description: Conversion result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversionResult'
+components:
+  schemas:
+    ConversionRequest:
+      type: object
+      description: Document conversion request
+      required:
+      - sourceId
+      - sourceType
+      - targetFormat
+      properties:
+        sourceId:
+          type: string
+          description: Source document identifier
+        sourceType:
+          type: string
+          enum:
+          - workbook
+          - document
+          - presentation
+          description: Type of the source document
+        targetFormat:
+          type: string
+          description: Target format (XLSX, DOCX, PPTX, PDF)
+    ConversionResult:
+      type: object
+      description: Document conversion result
+      properties:
+        id:
+          type: string
+          description: Converted document identifier
+        format:
+          type: string
+          description: Output format
+        url:
+          type: string
+          description: Download URL for the converted document
+        size:
+          type: integer
+          description: File size in bytes

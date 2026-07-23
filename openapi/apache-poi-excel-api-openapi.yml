@@ -1,0 +1,268 @@
+openapi: 3.0.3
+info:
+  title: Apache POI Conversion Excel API
+  description: Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.
+  version: 5.2.0
+  contact:
+    name: Apache POI
+    url: https://poi.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://poi.example.com/api/v1
+  description: Apache POI Document Service
+tags:
+- name: Excel
+paths:
+  /workbooks:
+    get:
+      operationId: listWorkbooks
+      summary: Apache POI List Workbooks
+      description: List all Excel workbooks managed by the POI service.
+      tags:
+      - Excel
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of workbooks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkbookList'
+    post:
+      operationId: createWorkbook
+      summary: Apache POI Create Workbook
+      description: Create a new Excel workbook (XLS or XLSX format).
+      tags:
+      - Excel
+      x-microcks-operation:
+        dispatcher: RANDOM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkbookRequest'
+      responses:
+        '201':
+          description: Workbook created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workbook'
+  /workbooks/{workbookId}:
+    get:
+      operationId: getWorkbook
+      summary: Apache POI Get Workbook
+      description: Retrieve metadata and sheet information for an Excel workbook.
+      tags:
+      - Excel
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId
+      parameters:
+      - name: workbookId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Workbook metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workbook'
+    delete:
+      operationId: deleteWorkbook
+      summary: Apache POI Delete Workbook
+      description: Delete an Excel workbook from the service.
+      tags:
+      - Excel
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId
+      parameters:
+      - name: workbookId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Workbook deleted
+  /workbooks/{workbookId}/sheets:
+    get:
+      operationId: listSheets
+      summary: Apache POI List Sheets
+      description: List all sheets in an Excel workbook.
+      tags:
+      - Excel
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId
+      parameters:
+      - name: workbookId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of sheets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SheetList'
+  /workbooks/{workbookId}/sheets/{sheetName}/cells:
+    get:
+      operationId: getCells
+      summary: Apache POI Get Cells
+      description: Get cell data from a specific sheet in an Excel workbook.
+      tags:
+      - Excel
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: workbookId && sheetName
+      parameters:
+      - name: workbookId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sheetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: range
+        in: query
+        schema:
+          type: string
+        description: Cell range (e.g. A1:D10)
+      responses:
+        '200':
+          description: Cell data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CellData'
+components:
+  schemas:
+    Sheet:
+      type: object
+      description: Excel worksheet
+      properties:
+        name:
+          type: string
+          description: Sheet name
+        index:
+          type: integer
+          description: Sheet index (0-based)
+        rowCount:
+          type: integer
+          description: Number of rows with data
+        columnCount:
+          type: integer
+          description: Number of columns with data
+    CellData:
+      type: object
+      description: Cell data from an Excel sheet
+      properties:
+        rows:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Cell'
+        range:
+          type: string
+          description: Cell range returned
+    SheetList:
+      type: object
+      description: List of sheets in a workbook
+      properties:
+        sheets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sheet'
+    WorkbookRequest:
+      type: object
+      description: Request to create an Excel workbook
+      required:
+      - name
+      - format
+      properties:
+        name:
+          type: string
+          description: Workbook filename
+        format:
+          type: string
+          enum:
+          - XLS
+          - XLSX
+          description: Output format
+        sheets:
+          type: array
+          items:
+            type: string
+          description: Initial sheet names
+    WorkbookList:
+      type: object
+      description: List of Excel workbooks
+      properties:
+        workbooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workbook'
+        total:
+          type: integer
+          description: Total number of workbooks
+    Cell:
+      type: object
+      description: Individual Excel cell
+      properties:
+        address:
+          type: string
+          description: Cell address (e.g. A1)
+        value:
+          type: string
+          description: Cell value as string
+        type:
+          type: string
+          enum:
+          - STRING
+          - NUMERIC
+          - BOOLEAN
+          - FORMULA
+          - BLANK
+          - ERROR
+          description: Cell type
+        formula:
+          type: string
+          description: Formula if applicable
+    Workbook:
+      type: object
+      description: Excel workbook metadata
+      properties:
+        id:
+          type: string
+          description: Workbook identifier
+        name:
+          type: string
+          description: Workbook filename
+        format:
+          type: string
+          enum:
+          - XLS
+          - XLSX
+          description: Office format (legacy XLS or modern XLSX)
+        sheetCount:
+          type: integer
+          description: Number of sheets in the workbook
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
