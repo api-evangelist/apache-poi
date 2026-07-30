@@ -4,9 +4,21 @@ description: Apache POI is a Java API for manipulating various file formats base
   and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and writing Excel, Word, PowerPoint, Visio, and
   Outlook files.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-poi.png
 tags:
 - Document Processing
 - Excel
@@ -21,24 +33,82 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: apache-poi:apache-poi
-  name: Apache POI
-  description: POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF),
-    PowerPoint (HSLF/XSLF), Visio (HDGF/XDGF), and Outlook (HSMF), with support for formulas, charts, and formatting.
+- aid: apache-poi:apache-poi-conversion-api
+  name: Apache POI Conversion API
+  description: The Conversion API from Apache POI — 1 operation(s) for conversion.
   humanURL: https://poi.apache.org/components/index.html
   tags:
-  - Document Processing
-  - Excel
-  - Java
-  - Apache
-  - Open Source
+  - Conversion
   properties:
+  - type: OpenAPI
+    url: openapi/apache-poi-conversion-api-openapi.yml
   - type: Documentation
     url: https://poi.apache.org/components/index.html
   - type: Documentation
     url: https://poi.apache.org/components/
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-conversion.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-excel.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-powerpoint.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-word.yaml
+- aid: apache-poi:apache-poi-excel-api
+  name: Apache POI Excel API
+  description: The Excel API from Apache POI — 4 operation(s) for excel.
+  humanURL: https://poi.apache.org/components/index.html
+  tags:
+  - Excel
+  properties:
   - type: OpenAPI
-    url: openapi/apache-poi-api.yaml
+    url: openapi/apache-poi-excel-api-openapi.yml
+  - type: Documentation
+    url: https://poi.apache.org/components/index.html
+  - type: Documentation
+    url: https://poi.apache.org/components/
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-conversion.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-excel.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-powerpoint.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-word.yaml
+- aid: apache-poi:apache-poi-powerpoint-api
+  name: Apache POI PowerPoint API
+  description: The PowerPoint API from Apache POI — 2 operation(s) for powerpoint.
+  humanURL: https://poi.apache.org/components/index.html
+  tags:
+  - PowerPoint
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-poi-powerpoint-api-openapi.yml
+  - type: Documentation
+    url: https://poi.apache.org/components/index.html
+  - type: Documentation
+    url: https://poi.apache.org/components/
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-conversion.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-excel.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-powerpoint.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apache-poi-word.yaml
+- aid: apache-poi:apache-poi-word-api
+  name: Apache POI Word API
+  description: The Word API from Apache POI — 2 operation(s) for word.
+  humanURL: https://poi.apache.org/components/index.html
+  tags:
+  - Word
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-poi-word-api-openapi.yml
+  - type: Documentation
+    url: https://poi.apache.org/components/index.html
+  - type: Documentation
+    url: https://poi.apache.org/components/
   - type: X-NaftikoCapability
     url: capabilities/apache-poi-conversion.yaml
   - type: X-NaftikoCapability
