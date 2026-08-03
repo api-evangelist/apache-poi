@@ -1,0 +1,20 @@
+{
+  "provider": "apache-poi",
+  "sources": [
+    "apache-poi-conversion-api-openapi.yml",
+    "apache-poi-excel-api-openapi.yml",
+    "apache-poi-powerpoint-api-openapi.yml",
+    "apache-poi-word-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-poi-conversion-api-openapi.yml",
+    "apache-poi-excel-api-openapi.yml",
+    "apache-poi-powerpoint-api-openapi.yml",
+    "apache-poi-word-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
