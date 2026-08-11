@@ -46,14 +46,6 @@ apis:
     url: https://poi.apache.org/components/index.html
   - type: Documentation
     url: https://poi.apache.org/components/
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-conversion.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-excel.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-powerpoint.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-word.yaml
 - aid: apache-poi:apache-poi-excel-api
   name: Apache POI Excel API
   description: The Excel API from Apache POI — 4 operation(s) for excel.
@@ -67,14 +59,6 @@ apis:
     url: https://poi.apache.org/components/index.html
   - type: Documentation
     url: https://poi.apache.org/components/
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-conversion.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-excel.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-powerpoint.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-word.yaml
 - aid: apache-poi:apache-poi-powerpoint-api
   name: Apache POI PowerPoint API
   description: The PowerPoint API from Apache POI — 2 operation(s) for powerpoint.
@@ -88,14 +72,6 @@ apis:
     url: https://poi.apache.org/components/index.html
   - type: Documentation
     url: https://poi.apache.org/components/
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-conversion.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-excel.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-powerpoint.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-word.yaml
 - aid: apache-poi:apache-poi-word-api
   name: Apache POI Word API
   description: The Word API from Apache POI — 2 operation(s) for word.
@@ -109,14 +85,6 @@ apis:
     url: https://poi.apache.org/components/index.html
   - type: Documentation
     url: https://poi.apache.org/components/
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-conversion.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-excel.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-powerpoint.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apache-poi-word.yaml
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
