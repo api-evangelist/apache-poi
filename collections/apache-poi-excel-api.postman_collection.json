@@ -1,0 +1,567 @@
+{
+  "item": [
+    {
+      "id": "6d26abde-746f-4384-a9e1-5f63a31164c4",
+      "name": "Excel",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "612697e8-ba8c-4c54-9513-f136d66627c0",
+          "name": "Apache POI List Workbooks",
+          "request": {
+            "name": "Apache POI List Workbooks",
+            "description": {
+              "content": "List all Excel workbooks managed by the POI service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workbooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5fb79543-b774-49be-9d45-a5a83c707230",
+              "name": "List of workbooks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workbooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workbooks\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"format\": \"XLSX\",\n      \"sheetCount\": 6407,\n      \"createdAt\": \"1986-10-18T07:29:57.469Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"format\": \"XLS\",\n      \"sheetCount\": 4379,\n      \"createdAt\": \"1995-03-08T14:44:31.655Z\"\n    }\n  ],\n  \"total\": 9356\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53205912-7da0-49cc-b2de-0cba04f9f3a9",
+          "name": "Apache POI Create Workbook",
+          "request": {
+            "name": "Apache POI Create Workbook",
+            "description": {
+              "content": "Create a new Excel workbook (XLS or XLSX format).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workbooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"<string>\",\n  \"sheets\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2665e380-0097-41f0-8759-b7606c01b594",
+              "name": "Workbook created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workbooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"<string>\",\n  \"sheets\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"format\": \"XLSX\",\n  \"sheetCount\": 8292,\n  \"createdAt\": \"1984-01-04T01:31:32.455Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5a20087-f91c-4de9-8706-c9af7c969a12",
+          "name": "Apache POI Get Workbook",
+          "request": {
+            "name": "Apache POI Get Workbook",
+            "description": {
+              "content": "Retrieve metadata and sheet information for an Excel workbook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workbooks",
+                ":workbookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6139b00-20b6-4f9a-b1fc-a9bce06e752a",
+              "name": "Workbook metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workbooks",
+                    ":workbookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"format\": \"XLSX\",\n  \"sheetCount\": 8292,\n  \"createdAt\": \"1984-01-04T01:31:32.455Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22cdfd88-10ef-4a30-b1f7-b3249e06ad1d",
+          "name": "Apache POI Delete Workbook",
+          "request": {
+            "name": "Apache POI Delete Workbook",
+            "description": {
+              "content": "Delete an Excel workbook from the service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workbooks",
+                ":workbookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40555e5f-d8ed-494c-bf9e-7ae6f5260cbf",
+              "name": "Workbook deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workbooks",
+                    ":workbookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60433aa6-e672-4603-be86-5ee73ee7e814",
+          "name": "Apache POI List Sheets",
+          "request": {
+            "name": "Apache POI List Sheets",
+            "description": {
+              "content": "List all sheets in an Excel workbook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workbooks",
+                ":workbookId",
+                "sheets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6f7e63f-4266-491f-ba2f-196bd783684b",
+              "name": "List of sheets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workbooks",
+                    ":workbookId",
+                    "sheets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sheets\": [\n    {\n      \"name\": \"string\",\n      \"index\": 9687,\n      \"rowCount\": 8634,\n      \"columnCount\": 1524\n    },\n    {\n      \"name\": \"string\",\n      \"index\": 466,\n      \"rowCount\": 141,\n      \"columnCount\": 4374\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43e748db-10c0-4d6c-afd7-a1de7ab22906",
+          "name": "Apache POI Get Cells",
+          "request": {
+            "name": "Apache POI Get Cells",
+            "description": {
+              "content": "Get cell data from a specific sheet in an Excel workbook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workbooks",
+                ":workbookId",
+                "sheets",
+                ":sheetName",
+                "cells"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "range",
+                  "value": "<string>",
+                  "description": "Cell range (e.g. A1:D10)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sheetName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e0fdf5c-2ad6-468c-a4f6-e106987ea4f1",
+              "name": "Cell data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workbooks",
+                    ":workbookId",
+                    "sheets",
+                    ":sheetName",
+                    "cells"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "range",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sheetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rows\": [\n    [\n      {\n        \"address\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"ERROR\",\n        \"formula\": \"string\"\n      },\n      {\n        \"address\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"STRING\",\n        \"formula\": \"string\"\n      }\n    ],\n    [\n      {\n        \"address\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"NUMERIC\",\n        \"formula\": \"string\"\n      },\n      {\n        \"address\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"STRING\",\n        \"formula\": \"string\"\n      }\n    ]\n  ],\n  \"range\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://poi.example.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "09c43ca7-d814-41de-bfe3-36c2967a3b4c",
+    "name": "Apache POI Conversion Excel API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.\n\nContact Support:\n Name: Apache POI",
+      "type": "text/plain"
+    }
+  }
+}

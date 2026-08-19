@@ -1,0 +1,211 @@
+{
+  "item": [
+    {
+      "id": "5f815439-fe92-4eac-89d2-4ea5662902a9",
+      "name": "PowerPoint",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36be74d3-dee6-467d-b675-b7f7f6a4aa23",
+          "name": "Apache POI Create Presentation",
+          "request": {
+            "name": "Apache POI Create Presentation",
+            "description": {
+              "content": "Create a new PowerPoint presentation (PPT or PPTX format).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "presentations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"<string>\",\n  \"slideCount\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e8e33e7-1796-478a-b521-fd2658bdaa23",
+              "name": "Presentation created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "presentations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"<string>\",\n  \"slideCount\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"format\": \"PPT\",\n  \"slides\": [\n    {\n      \"index\": 2045,\n      \"title\": \"string\",\n      \"shapes\": [\n        {\n          \"id\": 7314,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"id\": 8028,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        }\n      ]\n    },\n    {\n      \"index\": 3915,\n      \"title\": \"string\",\n      \"shapes\": [\n        {\n          \"id\": 3155,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"id\": 3358,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2561436-eac6-48bd-93a3-f9701b0be602",
+          "name": "Apache POI Get Presentation",
+          "request": {
+            "name": "Apache POI Get Presentation",
+            "description": {
+              "content": "Retrieve a PowerPoint presentation including slides and shapes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "presentations",
+                ":presentationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "presentationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93d5fb96-6f53-435e-a84e-46d2ec2fb47e",
+              "name": "Presentation content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "presentations",
+                    ":presentationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "presentationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"format\": \"PPT\",\n  \"slides\": [\n    {\n      \"index\": 2370,\n      \"title\": \"string\",\n      \"shapes\": [\n        {\n          \"id\": 8048,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"id\": 9607,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        }\n      ]\n    },\n    {\n      \"index\": 4322,\n      \"title\": \"string\",\n      \"shapes\": [\n        {\n          \"id\": 1983,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"id\": 1063,\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"text\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://poi.example.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b733590a-a294-46bf-a25b-6838a6e11a29",
+    "name": "Apache POI Conversion PowerPoint API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.\n\nContact Support:\n Name: Apache POI",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache POI Conversion API",
+    "version": "5.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache POI Convert Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://poi.example.com/api/v1/convert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Convert a document between Office formats (e.g. XLS to XLSX, DOC to DOCX)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

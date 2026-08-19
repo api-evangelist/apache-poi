@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache POI Conversion Word API",
+    "version": "5.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Word",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache POI Create Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://poi.example.com/api/v1/documents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Word document (DOC or DOCX format)."
+        },
+        {
+          "info": {
+            "name": "Apache POI Get Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://poi.example.com/api/v1/documents/:documentId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a Word document including paragraphs and text content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache POI Conversion PowerPoint API",
+    "version": "5.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PowerPoint",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache POI Create Presentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://poi.example.com/api/v1/presentations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new PowerPoint presentation (PPT or PPTX format)."
+        },
+        {
+          "info": {
+            "name": "Apache POI Get Presentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://poi.example.com/api/v1/presentations/:presentationId",
+            "params": [
+              {
+                "name": "presentationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a PowerPoint presentation including slides and shapes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache POI Conversion Excel API",
+    "version": "5.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Excel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache POI List Workbooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://poi.example.com/api/v1/workbooks"
+          },
+          "docs": "List all Excel workbooks managed by the POI service."
+        },
+        {
+          "info": {
+            "name": "Apache POI Create Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://poi.example.com/api/v1/workbooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Excel workbook (XLS or XLSX format)."
+        },
+        {
+          "info": {
+            "name": "Apache POI Get Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://poi.example.com/api/v1/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve metadata and sheet information for an Excel workbook."
+        },
+        {
+          "info": {
+            "name": "Apache POI Delete Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://poi.example.com/api/v1/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an Excel workbook from the service."
+        },
+        {
+          "info": {
+            "name": "Apache POI List Sheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://poi.example.com/api/v1/workbooks/:workbookId/sheets",
+            "params": [
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List all sheets in an Excel workbook."
+        },
+        {
+          "info": {
+            "name": "Apache POI Get Cells",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://poi.example.com/api/v1/workbooks/:workbookId/sheets/:sheetName/cells",
+            "params": [
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sheetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query",
+                "description": "Cell range (e.g. A1:D10)"
+              }
+            ]
+          },
+          "docs": "Get cell data from a specific sheet in an Excel workbook."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
