@@ -1,8 +1,8 @@
 aid: apache-poi
 name: Apache POI
-description: Apache POI is a Java API for manipulating various file formats based upon the Office Open XML standards (OOXML)
-  and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and writing Excel, Word, PowerPoint, Visio, and
-  Outlook files.
+description: Apache POI is a Java API for manipulating various file formats based upon the Office Open
+  XML standards (OOXML) and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and
+  writing Excel, Word, PowerPoint, Visio, and Outlook files.
 type: Index
 deliveryModel:
   model: unknown
@@ -49,7 +49,7 @@ tags_raw:
 - Apache
 - Open Source
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -109,6 +109,8 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
 common:
+- type: Website
+  url: https://apache.org
 - type: AgenticAccess
   url: agentic-access/apache-poi-agentic-access.yml
 - type: VulnerabilityDisclosure
