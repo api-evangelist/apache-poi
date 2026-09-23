@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache POI Conversion Word API
+  title: Apache POI Word API
   description: Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.
   version: 5.2.0
   contact:
@@ -85,19 +85,6 @@ components:
         pageCount:
           type: integer
           description: Estimated page count
-    Paragraph:
-      type: object
-      description: Paragraph in a Word document
-      properties:
-        index:
-          type: integer
-          description: Paragraph index
-        text:
-          type: string
-          description: Paragraph text content
-        style:
-          type: string
-          description: Paragraph style name
     DocumentRequest:
       type: object
       description: Request to create a Word document
@@ -117,3 +104,16 @@ components:
         content:
           type: string
           description: Initial text content
+    Paragraph:
+      type: object
+      description: Paragraph in a Word document
+      properties:
+        index:
+          type: integer
+          description: Paragraph index
+        text:
+          type: string
+          description: Paragraph text content
+        style:
+          type: string
+          description: Paragraph style name

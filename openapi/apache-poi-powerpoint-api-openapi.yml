@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache POI Conversion PowerPoint API
+  title: Apache POI Power Point API
   description: Apache POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio, and Outlook. This OpenAPI represents the logical REST surface of a POI-based document processing service.
   version: 5.2.0
   contact:
@@ -62,6 +62,55 @@ paths:
                 $ref: '#/components/schemas/Presentation'
 components:
   schemas:
+    PresentationRequest:
+      type: object
+      description: Request to create a PowerPoint presentation
+      required:
+      - name
+      - format
+      properties:
+        name:
+          type: string
+          description: Presentation filename
+        format:
+          type: string
+          enum:
+          - PPT
+          - PPTX
+          description: Presentation format
+        slideCount:
+          type: integer
+          description: Initial number of blank slides
+    Slide:
+      type: object
+      description: PowerPoint slide
+      properties:
+        index:
+          type: integer
+          description: Slide index (0-based)
+        title:
+          type: string
+          description: Slide title text
+        shapes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shape'
+    Shape:
+      type: object
+      description: Shape on a PowerPoint slide
+      properties:
+        id:
+          type: integer
+          description: Shape identifier
+        name:
+          type: string
+          description: Shape name
+        type:
+          type: string
+          description: Shape type (TextBox, Picture, Table, etc.)
+        text:
+          type: string
+          description: Text content of the shape
     Presentation:
       type: object
       description: PowerPoint presentation
@@ -82,52 +131,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Slide'
-    Shape:
-      type: object
-      description: Shape on a PowerPoint slide
-      properties:
-        id:
-          type: integer
-          description: Shape identifier
-        name:
-          type: string
-          description: Shape name
-        type:
-          type: string
-          description: Shape type (TextBox, Picture, Table, etc.)
-        text:
-          type: string
-          description: Text content of the shape
-    Slide:
-      type: object
-      description: PowerPoint slide
-      properties:
-        index:
-          type: integer
-          description: Slide index (0-based)
-        title:
-          type: string
-          description: Slide title text
-        shapes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Shape'
-    PresentationRequest:
-      type: object
-      description: Request to create a PowerPoint presentation
-      required:
-      - name
-      - format
-      properties:
-        name:
-          type: string
-          description: Presentation filename
-        format:
-          type: string
-          enum:
-          - PPT
-          - PPTX
-          description: Presentation format
-        slideCount:
-          type: integer
-          description: Initial number of blank slides

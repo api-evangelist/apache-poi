@@ -1,10 +1,7 @@
 {
   "provider": "apache-poi",
   "sources": [
-    "apache-poi-conversion-api-openapi.yml",
-    "apache-poi-excel-api-openapi.yml",
-    "apache-poi-powerpoint-api-openapi.yml",
-    "apache-poi-word-api-openapi.yml"
+    "_original/apache-poi-api.yaml"
   ],
   "outputs": [
     "apache-poi-conversion-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-poi-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apache-poi-api.yaml: declared missing tag: Conversion",
+    "apache-poi-api.yaml: declared missing tag: Excel",
+    "apache-poi-api.yaml: declared missing tag: PowerPoint",
+    "apache-poi-api.yaml: declared missing tag: Word",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apache-poi-conversion-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-poi-excel-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-poi-powerpoint-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-poi-word-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
