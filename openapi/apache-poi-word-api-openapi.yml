@@ -62,29 +62,6 @@ paths:
                 $ref: '#/components/schemas/Document'
 components:
   schemas:
-    Document:
-      type: object
-      description: Word document
-      properties:
-        id:
-          type: string
-          description: Document identifier
-        name:
-          type: string
-          description: Document filename
-        format:
-          type: string
-          enum:
-          - DOC
-          - DOCX
-          description: Document format
-        paragraphs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Paragraph'
-        pageCount:
-          type: integer
-          description: Estimated page count
     DocumentRequest:
       type: object
       description: Request to create a Word document
@@ -117,3 +94,26 @@ components:
         style:
           type: string
           description: Paragraph style name
+    Document:
+      type: object
+      description: Word document
+      properties:
+        id:
+          type: string
+          description: Document identifier
+        name:
+          type: string
+          description: Document filename
+        format:
+          type: string
+          enum:
+          - DOC
+          - DOCX
+          description: Document format
+        paragraphs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Paragraph'
+        pageCount:
+          type: integer
+          description: Estimated page count

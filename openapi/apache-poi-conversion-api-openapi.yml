@@ -39,6 +39,22 @@ paths:
                 $ref: '#/components/schemas/ConversionResult'
 components:
   schemas:
+    ConversionResult:
+      type: object
+      description: Document conversion result
+      properties:
+        id:
+          type: string
+          description: Converted document identifier
+        format:
+          type: string
+          description: Output format
+        url:
+          type: string
+          description: Download URL for the converted document
+        size:
+          type: integer
+          description: File size in bytes
     ConversionRequest:
       type: object
       description: Document conversion request
@@ -60,19 +76,3 @@ components:
         targetFormat:
           type: string
           description: Target format (XLSX, DOCX, PPTX, PDF)
-    ConversionResult:
-      type: object
-      description: Document conversion result
-      properties:
-        id:
-          type: string
-          description: Converted document identifier
-        format:
-          type: string
-          description: Output format
-        url:
-          type: string
-          description: Download URL for the converted document
-        size:
-          type: integer
-          description: File size in bytes

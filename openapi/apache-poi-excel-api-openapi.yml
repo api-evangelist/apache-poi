@@ -151,6 +151,14 @@ paths:
                 $ref: '#/components/schemas/CellData'
 components:
   schemas:
+    SheetList:
+      type: object
+      description: List of sheets in a workbook
+      properties:
+        sheets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sheet'
     Workbook:
       type: object
       description: Excel workbook metadata
@@ -174,51 +182,22 @@ components:
           type: string
           format: date-time
           description: Creation timestamp
-    CellData:
+    Sheet:
       type: object
-      description: Cell data from an Excel sheet
-      properties:
-        rows:
-          type: array
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/Cell'
-        range:
-          type: string
-          description: Cell range returned
-    WorkbookList:
-      type: object
-      description: List of Excel workbooks
-      properties:
-        workbooks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Workbook'
-        total:
-          type: integer
-          description: Total number of workbooks
-    WorkbookRequest:
-      type: object
-      description: Request to create an Excel workbook
-      required:
-      - name
-      - format
+      description: Excel worksheet
       properties:
         name:
           type: string
-          description: Workbook filename
-        format:
-          type: string
-          enum:
-          - XLS
-          - XLSX
-          description: Output format
-        sheets:
-          type: array
-          items:
-            type: string
-          description: Initial sheet names
+          description: Sheet name
+        index:
+          type: integer
+          description: Sheet index (0-based)
+        rowCount:
+          type: integer
+          description: Number of rows with data
+        columnCount:
+          type: integer
+          description: Number of columns with data
     Cell:
       type: object
       description: Individual Excel cell
@@ -242,27 +221,48 @@ components:
         formula:
           type: string
           description: Formula if applicable
-    Sheet:
+    WorkbookList:
       type: object
-      description: Excel worksheet
+      description: List of Excel workbooks
+      properties:
+        workbooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workbook'
+        total:
+          type: integer
+          description: Total number of workbooks
+    CellData:
+      type: object
+      description: Cell data from an Excel sheet
+      properties:
+        rows:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/Cell'
+        range:
+          type: string
+          description: Cell range returned
+    WorkbookRequest:
+      type: object
+      description: Request to create an Excel workbook
+      required:
+      - name
+      - format
       properties:
         name:
           type: string
-          description: Sheet name
-        index:
-          type: integer
-          description: Sheet index (0-based)
-        rowCount:
-          type: integer
-          description: Number of rows with data
-        columnCount:
-          type: integer
-          description: Number of columns with data
-    SheetList:
-      type: object
-      description: List of sheets in a workbook
-      properties:
+          description: Workbook filename
+        format:
+          type: string
+          enum:
+          - XLS
+          - XLSX
+          description: Output format
         sheets:
           type: array
           items:
-            $ref: '#/components/schemas/Sheet'
+            type: string
+          description: Initial sheet names
