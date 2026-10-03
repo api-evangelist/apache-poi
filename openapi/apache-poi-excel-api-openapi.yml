@@ -151,6 +151,38 @@ paths:
                 $ref: '#/components/schemas/CellData'
 components:
   schemas:
+    WorkbookRequest:
+      type: object
+      description: Request to create an Excel workbook
+      required:
+      - name
+      - format
+      properties:
+        name:
+          type: string
+          description: Workbook filename
+        format:
+          type: string
+          enum:
+          - XLS
+          - XLSX
+          description: Output format
+        sheets:
+          type: array
+          items:
+            type: string
+          description: Initial sheet names
+    WorkbookList:
+      type: object
+      description: List of Excel workbooks
+      properties:
+        workbooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workbook'
+        total:
+          type: integer
+          description: Total number of workbooks
     SheetList:
       type: object
       description: List of sheets in a workbook
@@ -221,17 +253,6 @@ components:
         formula:
           type: string
           description: Formula if applicable
-    WorkbookList:
-      type: object
-      description: List of Excel workbooks
-      properties:
-        workbooks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Workbook'
-        total:
-          type: integer
-          description: Total number of workbooks
     CellData:
       type: object
       description: Cell data from an Excel sheet
@@ -245,24 +266,3 @@ components:
         range:
           type: string
           description: Cell range returned
-    WorkbookRequest:
-      type: object
-      description: Request to create an Excel workbook
-      required:
-      - name
-      - format
-      properties:
-        name:
-          type: string
-          description: Workbook filename
-        format:
-          type: string
-          enum:
-          - XLS
-          - XLSX
-          description: Output format
-        sheets:
-          type: array
-          items:
-            type: string
-          description: Initial sheet names
