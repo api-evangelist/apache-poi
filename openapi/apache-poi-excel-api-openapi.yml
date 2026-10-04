@@ -172,6 +172,37 @@ components:
           items:
             type: string
           description: Initial sheet names
+    Cell:
+      type: object
+      description: Individual Excel cell
+      properties:
+        address:
+          type: string
+          description: Cell address (e.g. A1)
+        value:
+          type: string
+          description: Cell value as string
+        type:
+          type: string
+          enum:
+          - STRING
+          - NUMERIC
+          - BOOLEAN
+          - FORMULA
+          - BLANK
+          - ERROR
+          description: Cell type
+        formula:
+          type: string
+          description: Formula if applicable
+    SheetList:
+      type: object
+      description: List of sheets in a workbook
+      properties:
+        sheets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sheet'
     WorkbookList:
       type: object
       description: List of Excel workbooks
@@ -183,14 +214,19 @@ components:
         total:
           type: integer
           description: Total number of workbooks
-    SheetList:
+    CellData:
       type: object
-      description: List of sheets in a workbook
+      description: Cell data from an Excel sheet
       properties:
-        sheets:
+        rows:
           type: array
           items:
-            $ref: '#/components/schemas/Sheet'
+            type: array
+            items:
+              $ref: '#/components/schemas/Cell'
+        range:
+          type: string
+          description: Cell range returned
     Workbook:
       type: object
       description: Excel workbook metadata
@@ -230,39 +266,3 @@ components:
         columnCount:
           type: integer
           description: Number of columns with data
-    Cell:
-      type: object
-      description: Individual Excel cell
-      properties:
-        address:
-          type: string
-          description: Cell address (e.g. A1)
-        value:
-          type: string
-          description: Cell value as string
-        type:
-          type: string
-          enum:
-          - STRING
-          - NUMERIC
-          - BOOLEAN
-          - FORMULA
-          - BLANK
-          - ERROR
-          description: Cell type
-        formula:
-          type: string
-          description: Formula if applicable
-    CellData:
-      type: object
-      description: Cell data from an Excel sheet
-      properties:
-        rows:
-          type: array
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/Cell'
-        range:
-          type: string
-          description: Cell range returned
