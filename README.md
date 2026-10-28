@@ -1,4 +1,4 @@
-# Apache POI (apache-poi)
+# Apache POI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,122 +66,202 @@
 
 Apache POI is a Java API for manipulating various file formats based upon the Office Open XML standards (OOXML) and Microsoft's OLE2 Compound Document format (OLE2). It supports reading and writing Excel, Word, PowerPoint, Visio, and Outlook files.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-poi/refs/heads/main/apis.yml)
+**Areas:** Document Processing · Excel · Java · Microsoft Office · PowerPoint · Word · Apache · Open Source
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Apache POI on APIs.io
 
-## Tags:
+Everything profiled for Apache POI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-poi/](https://apis.io/providers/apache-poi/)** — or go straight to one of the APIs or properties below.
 
- - Document Processing, Excel, Java, Microsoft Office, PowerPoint, Word, Apache, Open Source
+### APIs (4)
 
-## Timestamps
+- [Apache POI Conversion API](https://apis.io/apis/apache-poi/apache-poi-conversion-api/) — The Conversion API from Apache POI — 1 operation(s) for conversion.
+- [Apache POI Excel API](https://apis.io/apis/apache-poi/apache-poi-excel-api/) — The Excel API from Apache POI — 4 operation(s) for excel.
+- [Apache POI PowerPoint API](https://apis.io/apis/apache-poi/apache-poi-powerpoint-api/) — The PowerPoint API from Apache POI — 2 operation(s) for powerpoint.
+- [Apache POI Word API](https://apis.io/apis/apache-poi/apache-poi-word-api/) — The Word API from Apache POI — 2 operation(s) for word.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Apache POI API
-POI provides Java APIs for reading and writing Microsoft Office formats including Excel (HSSF/XSSF), Word (HWPF/XWPF), PowerPoint (HSLF/XSLF), Visio (HDGF/XDGF), and Outlook (HSMF), with support for formulas, charts, and formatting.
+#### Agentic access (1)
 
-**Human URL:** [https://poi.apache.org/components/](https://poi.apache.org/components/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Apache Poi Agentic Access](https://apis.io/agentic-access/apache-poi/apache-poi-agentic-access/)
 
- - Document Processing, Excel, Java, Apache, Open Source
+#### JSON Schema (16)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://poi.apache.org/components/)
-- [OpenAPI](openapi/apache-poi-api.yaml)
+- [Cell](https://apis.io/schemas/apache-poi/apache-poi-cell/)
+- [CellData](https://apis.io/schemas/apache-poi/apache-poi-cell-data/)
+- [ConversionRequest](https://apis.io/schemas/apache-poi/apache-poi-conversion-request/)
+- [ConversionResult](https://apis.io/schemas/apache-poi/apache-poi-conversion-result/)
+- [Document](https://apis.io/schemas/apache-poi/apache-poi-document/)
+- [DocumentRequest](https://apis.io/schemas/apache-poi/apache-poi-document-request/)
+- [Paragraph](https://apis.io/schemas/apache-poi/apache-poi-paragraph/)
+- [Presentation](https://apis.io/schemas/apache-poi/apache-poi-presentation/)
+- [PresentationRequest](https://apis.io/schemas/apache-poi/apache-poi-presentation-request/)
+- [Shape](https://apis.io/schemas/apache-poi/apache-poi-shape/)
+- [Sheet](https://apis.io/schemas/apache-poi/apache-poi-sheet/)
+- [SheetList](https://apis.io/schemas/apache-poi/apache-poi-sheet-list/)
+- [Slide](https://apis.io/schemas/apache-poi/apache-poi-slide/)
+- [Workbook](https://apis.io/schemas/apache-poi/apache-poi-workbook/)
+- [WorkbookList](https://apis.io/schemas/apache-poi/apache-poi-workbook-list/)
+- [WorkbookRequest](https://apis.io/schemas/apache-poi/apache-poi-workbook-request/)
 
-## Common Properties
+#### JSON Structure (16)
 
-- [GitHubOrganization](https://github.com/apache/poi)
+Data models expressed in JSON Structure.
+
+- [Apache Poi Cell Data Structure](https://apis.io/json-structure/apache-poi/apache-poi-cell-data-structure/)
+- [Apache Poi Cell Structure](https://apis.io/json-structure/apache-poi/apache-poi-cell-structure/)
+- [Apache Poi Conversion Request Structure](https://apis.io/json-structure/apache-poi/apache-poi-conversion-request-structure/)
+- [Apache Poi Conversion Result Structure](https://apis.io/json-structure/apache-poi/apache-poi-conversion-result-structure/)
+- [Apache Poi Document Request Structure](https://apis.io/json-structure/apache-poi/apache-poi-document-request-structure/)
+- [Apache Poi Document Structure](https://apis.io/json-structure/apache-poi/apache-poi-document-structure/)
+- [Apache Poi Paragraph Structure](https://apis.io/json-structure/apache-poi/apache-poi-paragraph-structure/)
+- [Apache Poi Presentation Request Structure](https://apis.io/json-structure/apache-poi/apache-poi-presentation-request-structure/)
+- [Apache Poi Presentation Structure](https://apis.io/json-structure/apache-poi/apache-poi-presentation-structure/)
+- [Apache Poi Shape Structure](https://apis.io/json-structure/apache-poi/apache-poi-shape-structure/)
+- [Apache Poi Sheet List Structure](https://apis.io/json-structure/apache-poi/apache-poi-sheet-list-structure/)
+- [Apache Poi Sheet Structure](https://apis.io/json-structure/apache-poi/apache-poi-sheet-structure/)
+- [Apache Poi Slide Structure](https://apis.io/json-structure/apache-poi/apache-poi-slide-structure/)
+- [Apache Poi Workbook List Structure](https://apis.io/json-structure/apache-poi/apache-poi-workbook-list-structure/)
+- [Apache Poi Workbook Request Structure](https://apis.io/json-structure/apache-poi/apache-poi-workbook-request-structure/)
+- [Apache Poi Workbook Structure](https://apis.io/json-structure/apache-poi/apache-poi-workbook-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Apache Poi Context](https://apis.io/jsonld/apache-poi/apache-poi-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Apache POI Vocabulary](https://apis.io/vocabularies/apache-poi/apache-poi-vocabulary/)
+
+#### Examples (16)
+
+Example requests and responses.
+
+- [Apache Poi Cell Data Example](https://apis.io/examples/apache-poi/apache-poi-cell-data-example/)
+- [Apache Poi Cell Example](https://apis.io/examples/apache-poi/apache-poi-cell-example/)
+- [Apache Poi Conversion Request Example](https://apis.io/examples/apache-poi/apache-poi-conversion-request-example/)
+- [Apache Poi Conversion Result Example](https://apis.io/examples/apache-poi/apache-poi-conversion-result-example/)
+- [Apache Poi Document Example](https://apis.io/examples/apache-poi/apache-poi-document-example/)
+- [Apache Poi Document Request Example](https://apis.io/examples/apache-poi/apache-poi-document-request-example/)
+- [Apache Poi Paragraph Example](https://apis.io/examples/apache-poi/apache-poi-paragraph-example/)
+- [Apache Poi Presentation Example](https://apis.io/examples/apache-poi/apache-poi-presentation-example/)
+- [Apache Poi Presentation Request Example](https://apis.io/examples/apache-poi/apache-poi-presentation-request-example/)
+- [Apache Poi Shape Example](https://apis.io/examples/apache-poi/apache-poi-shape-example/)
+- [Apache Poi Sheet Example](https://apis.io/examples/apache-poi/apache-poi-sheet-example/)
+- [Apache Poi Sheet List Example](https://apis.io/examples/apache-poi/apache-poi-sheet-list-example/)
+- [Apache Poi Slide Example](https://apis.io/examples/apache-poi/apache-poi-slide-example/)
+- [Apache Poi Workbook Example](https://apis.io/examples/apache-poi/apache-poi-workbook-example/)
+- [Apache Poi Workbook List Example](https://apis.io/examples/apache-poi/apache-poi-workbook-list-example/)
+- [Apache Poi Workbook Request Example](https://apis.io/examples/apache-poi/apache-poi-workbook-request-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Apache POI Conversion API](https://apis.io/collections/apache-poi/open-apache-poi-conversion-api/)
+- [Apache POI Conversion Excel API](https://apis.io/collections/apache-poi/open-apache-poi-excel-api/)
+- [Apache POI Conversion PowerPoint API](https://apis.io/collections/apache-poi/open-apache-poi-powerpoint-api/)
+- [Apache POI Conversion Word API](https://apis.io/collections/apache-poi/open-apache-poi-word-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache POI — jsonschema rules](https://apis.io/rules/apache-poi/apache-poi-jsonschema-spectral-rules/)
+- [Apache POI API Rules](https://apis.io/rules/apache-poi/apache-poi-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Poi Domain Security](https://apis.io/security/apache-poi/apache-poi-domain-security/)
+- [Apache Poi Vulnerability Disclosure](https://apis.io/security/apache-poi/apache-poi-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Poi Plans Pricing](https://apis.io/plans/apache-poi/apache-poi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Poi Rate Limits](https://apis.io/rate-limits/apache-poi/apache-poi-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Poi Finops](https://apis.io/finops/apache-poi/apache-poi-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://apache.org)
 - [Documentation](https://poi.apache.org/)
-- [SpectralRules](rules/apache-poi-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-poi-vocabulary.yaml)
-- [NaftikoCapability](capabilities/poi-workflow.yaml)
-- [JSON-LD](json-ld/apache-poi-context.jsonld)
+- [GitHub](https://github.com/apache/poi)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Excel HSSF/XSSF | Read and write Excel files in legacy XLS (HSSF) and modern XLSX (XSSF) formats |
-| Word HWPF/XWPF | Read and write Word documents in legacy DOC (HWPF) and modern DOCX (XWPF) formats |
-| PowerPoint HSLF/XSLF | Create and manipulate PowerPoint presentations in PPT and PPTX formats |
-| Formula Evaluation | Evaluate Excel formulas and compute cell values programmatically |
-| Streaming API | Low-memory streaming API (SXSSF) for writing large Excel files |
-| Chart Support | Create and modify charts in Excel workbooks and PowerPoint slides |
-| Digital Signatures | Sign Office documents with digital signatures using OOXML standards |
+**Kin Score 25.5** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 48.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 7.9 |
 
-| Name | Description |
-|------|-------------|
-| Report Generation | Generate Excel and Word reports programmatically from application data |
-| Data Import/Export | Import data from Excel spreadsheets and export results back |
-| Template Processing | Fill Office document templates with dynamic data |
-| Document Conversion | Convert between legacy Office formats and modern OOXML formats |
+**Agent readiness 15.4** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| Apache Tika | POI is used by Tika for Office document text extraction |
-| Spring Framework | Integrate POI with Spring Boot for web-based document generation |
-| Maven Central | Available as org.apache.poi artifacts on Maven Central |
-| Apache Commons | Uses Commons Collections and Commons Math for data structures |
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-poi/](https://apis.io/providers/apache-poi/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Apache POI API](openapi/apache-poi-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache POI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Workbook](json-schema/apache-poi-workbook-schema.json)
-- [Sheet](json-schema/apache-poi-sheet-schema.json)
-- [Cell](json-schema/apache-poi-cell-schema.json)
-- [Document](json-schema/apache-poi-document-schema.json)
-- [And more...](json-schema/)
-
-### JSON Structure
-
-- [Apache POI JSON Structures](json-structure/)
-
-### JSON-LD
-
-- [Apache POI Context](json-ld/apache-poi-context.jsonld)
-
-### Examples
-
-- [Apache POI Examples](examples/)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Document Processing Workflow](capabilities/poi-workflow.yaml) | Apache POI | 8 | Application Developer, Data Engineer |
-
-## Vocabulary
-
-- [Apache POI Vocabulary](vocabulary/apache-poi-vocabulary.yaml) — Unified taxonomy mapping Microsoft Office document processing resources, actions, workflows, and personas
-
-## Rules
-
-- [Apache POI Spectral Rules](rules/apache-poi-spectral-rules.yml) — Rules enforcing Apache POI API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-poi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
